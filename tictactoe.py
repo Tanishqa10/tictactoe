@@ -1,4 +1,4 @@
-  
+   
 state = [ # nested list 
     ["*","*","*"],#i0
     ["*","*","*"],
@@ -16,6 +16,12 @@ def checkWin(x, y):
     if x[0][2] == x[1][1] == x[2][0] == y:
         return y
     return 0
+
+def checkDraw(x):
+    for i in x:
+        if "*" in i:
+            return False
+    return True
 
 def gridDisplay(y):
     for i in y:
@@ -38,7 +44,12 @@ while True:
     else:
         print("Please Enter a valid row and column")
     winner = checkWin(state, turn)
+    if checkDraw(state):
+        gridDisplay(state)
+        print("Game is drawn")
+        break
     if winner != 0:
+        gridDisplay(state)
         print("Winner is", turn)
         break
     if turn == "X":
