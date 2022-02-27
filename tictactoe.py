@@ -1,5 +1,4 @@
-import os
-    
+  
 state = [ # nested list 
     ["*","*","*"],#i0
     ["*","*","*"],
